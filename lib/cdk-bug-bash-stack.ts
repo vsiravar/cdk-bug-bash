@@ -26,9 +26,10 @@ export class CdkBugBashStack extends cdk.Stack {
       index: 'index.py', // optional, defaults to 'index.py'
       handler: 'handler', // optional, defaults to 'handler'
       bundling: {
-        image: cdk.DockerImage.fromBuild(path.join(entry)),
+        image: cdk.DockerImage.fromBuild(path.join(e)),
         bundlingFileAccess: BundlingFileAccess.VOLUME_COPY,
         assetExcludes: ['.ignorefile'],
+        network: 'host'
       }
     }); 
   }
